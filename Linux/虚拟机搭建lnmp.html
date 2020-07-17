@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>虚拟机搭建lnmp | 江南一点雨</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="icon" href="https://open.weixin.qq.com/qr/code?username=a_javaboy">
+    <meta name="description" content="">
+    <link rel="preload" href="/assets/css/0.styles.34d67128.css" as="style"><link rel="preload" href="/assets/js/app.acbfca1e.js" as="script"><link rel="preload" href="/assets/js/2.d3514a48.js" as="script"><link rel="preload" href="/assets/js/9.9f580f2a.js" as="script"><link rel="prefetch" href="/assets/js/10.015b4aab.js"><link rel="prefetch" href="/assets/js/3.01385c65.js"><link rel="prefetch" href="/assets/js/4.7d5f245c.js"><link rel="prefetch" href="/assets/js/5.9548c920.js"><link rel="prefetch" href="/assets/js/6.98fcf0d3.js"><link rel="prefetch" href="/assets/js/7.cefe5424.js"><link rel="prefetch" href="/assets/js/8.64e1163e.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.34d67128.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="https://open.weixin.qq.com/qr/code?username=a_javaboy" alt="江南一点雨" class="logo"> <span class="site-name can-hide">江南一点雨</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="http://www.javaboy.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  国际站
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="http://www.itboyhub.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  国内站
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="http://www.javaboy.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  国际站
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="http://www.itboyhub.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  国内站
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="http://www.javaboy.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  国际站
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="http://www.itboyhub.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  国内站
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="http://www.javaboy.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  国际站
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="http://www.itboyhub.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  国内站
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><a href="/Linux/" class="sidebar-heading clickable router-link-active open"><span>Linux</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Linux/虚拟机搭建lnmp.html" class="active sidebar-link">虚拟机搭建lnmp</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Linux/虚拟机搭建lnmp.html#鼠标不会动的话，需要设置：" class="sidebar-link">鼠标不会动的话，需要设置：</a></li><li class="sidebar-sub-header"><a href="/Linux/虚拟机搭建lnmp.html#网络连接设置：" class="sidebar-link">网络连接设置：</a></li><li class="sidebar-sub-header"><a href="/Linux/虚拟机搭建lnmp.html#安装nginx" class="sidebar-link">安装nginx</a></li><li class="sidebar-sub-header"><a href="/Linux/虚拟机搭建lnmp.html#安装mysql" class="sidebar-link">安装MySQL</a></li><li class="sidebar-sub-header"><a href="/Linux/虚拟机搭建lnmp.html#安装php" class="sidebar-link">安装php</a></li><li class="sidebar-sub-header"><a href="/Linux/虚拟机搭建lnmp.html#安装redis" class="sidebar-link">安装redis</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Linux/虚拟机搭建lnmp.html#安装redis扩展" class="sidebar-link">安装redis扩展</a></li></ul></li><li class="sidebar-sub-header"><a href="/Linux/虚拟机搭建lnmp.html#_1-安装需要的环境" class="sidebar-link">1.安装需要的环境</a></li><li class="sidebar-sub-header"><a href="/Linux/虚拟机搭建lnmp.html#_2-重启系统" class="sidebar-link">2.重启系统</a></li><li class="sidebar-sub-header"><a href="/Linux/虚拟机搭建lnmp.html#_3-挂载并安装-vboxguestadditions-iso" class="sidebar-link">3.挂载并安装 VBoxGuestAdditions.iso</a></li><li class="sidebar-sub-header"><a href="/Linux/虚拟机搭建lnmp.html#_4-共享文件夹" class="sidebar-link">4.共享文件夹</a></li><li class="sidebar-sub-header"><a href="/Linux/虚拟机搭建lnmp.html#_5-共享文件权限问题" class="sidebar-link">5.共享文件权限问题</a></li></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><a href="/Java/" class="sidebar-heading clickable"><span>Java</span> <!----></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/Java/Stream使用.html" class="sidebar-link">Stream</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="一、设置必备设置"><a href="#一、设置必备设置" class="header-anchor">#</a> 一、设置必备设置</h1> <h2 id="鼠标不会动的话，需要设置："><a href="#鼠标不会动的话，需要设置：" class="header-anchor">#</a> 鼠标不会动的话，需要设置：</h2> <p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fztj3hb035j30p20d2goo.jpg" alt="image-20190203205421821"></p> <h2 id="网络连接设置："><a href="#网络连接设置：" class="header-anchor">#</a> 网络连接设置：</h2> <p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fzungnruzkj30ik0djwfo.jpg" alt="image-20190204201057032"></p> <p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1fzunik7ggxj30ik0djabk.jpg" alt="image-20190204201248933"></p> <p><code>ssh -p 9701 root@127.0.0.1</code></p> <p>然后在终端中可以这样连接</p> <h1 id="二、安装lnmp"><a href="#二、安装lnmp" class="header-anchor">#</a> 二、安装lnmp</h1> <p>参考连接：https://my.oschina.net/silents/blog/1616103</p> <p>在虚拟机安装好centos7.2 后</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 如果ifconfig 报错的话 。</span>
+<span class="token function">sudo</span> yum <span class="token function">install</span> net-tools
+</code></pre></div><p>更新系统</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum -y update
+</code></pre></div><h2 id="安装nginx"><a href="#安装nginx" class="header-anchor">#</a> 安装nginx</h2> <p>使用yum安装nginx的最新源</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum localinstall http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+</code></pre></div><p>检查nginx源是否安装成功</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum repolist enabled <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">&quot;nginx*&quot;</span>
+</code></pre></div><p>安装nginx</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum -y <span class="token function">install</span> nginx  
+</code></pre></div><p>启动nginx</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">service</span> nginx start
+</code></pre></div><p>设置nginx服务器开机自启动</p> <div class="language-shell extra-class"><pre class="language-shell"><code>systemctl <span class="token builtin class-name">enable</span> nginx.service
+</code></pre></div><p>检查开机自动是否设置成功</p> <div class="language-shell extra-class"><pre class="language-shell"><code>systemctl list-dependencies <span class="token operator">|</span> <span class="token function">grep</span> nginx
+</code></pre></div><p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fzrdi0crb8j30do01ldft.jpg" alt="image-20190202000936072"></p> <p>检查nginx</p> <p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fzrdikw0jfj30k208g3zm.jpg" alt="image-20190202001009266"></p> <h2 id="安装mysql"><a href="#安装mysql" class="header-anchor">#</a> 安装MySQL</h2> <p>安装5.7.x的mysql源</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum -y localinstall  http://dev.mysql.com/get/mysql57-community-release-el7-7.noarch.rpm
+
+</code></pre></div><p>检查mysql源是否安装成功</p> <div class="language-shell extra-class"><pre class="language-shell"><code>yum repolist enabled <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">&quot;mysql.*-community.*&quot;</span>
+
+</code></pre></div><p>源设置成功之后, 继续安装mysql 并启动, 加入开机自启动服务,并在命令行验证</p> <p>安装mysql</p> <div class="language- extra-class"><pre class="language-text"><code>yum -y install mysql-community-server install mysql-community-devel    
+
+</code></pre></div><p>启动mysql</p> <div class="language- extra-class"><pre class="language-text"><code>service mysqld start
+</code></pre></div><p>检查mysql启动是否正常</p> <div class="language- extra-class"><pre class="language-text"><code>service mysqld status 或者 ps -ef | grep mysql
+</code></pre></div><p>设置mysqld服务开机自启动</p> <div class="language- extra-class"><pre class="language-text"><code>systemctl enable mysqld.service
+</code></pre></div><p>检查mysqld开机自启动是否设置成功</p> <div class="language- extra-class"><pre class="language-text"><code>systemctl list-dependencies | grep mysqld
+</code></pre></div><p>查看mysql的随机密码</p> <div class="language- extra-class"><pre class="language-text"><code>grep 'temporary password' /var/log/mysqld.log
+</code></pre></div><p>使用查询得到的随机密码在终端登录</p> <div class="language- extra-class"><pre class="language-text"><code>mysql -u root -p  
+</code></pre></div><p>更改密码(mysql文档规定,密码必须包括大小写字母数字加特殊符号&gt;8位)</p> <div class="language- extra-class"><pre class="language-text"><code>ALTER USER 'root'@'localhost' IDENTIFIED BY '你要设置的密码';
+</code></pre></div><p>退出mysql客户端,用刚才修改的密码登录确保密码修改成功</p> <div class="language- extra-class"><pre class="language-text"><code>mysql -uroot -pxxxxx
+</code></pre></div><p>###使用本地工具连接虚拟机的mysql</p> <p>参考连接：https://blog.csdn.net/EI__Nino/article/details/25069391</p> <p>如果你想连接你的mysql的时候发生这个错误：</p> <p>ERROR 1130: Host '192.168.1.3' is not allowed to connect to this MySQL server</p> <p>注意：一个要在网络设置哪里配转发的端口</p> <div class="language-mysql extra-class"><pre class="language-text"><code>1。 改表法。可能是你的帐号不允许从远程登陆，只能在localhost。这个时候只要在localhost的那台电脑，登入mysql后，更改 &quot;mysql&quot; 数据库里的 &quot;user&quot; 表里的 &quot;host&quot; 项，从&quot;localhost&quot;改称&quot;%&quot;
+mysql -u root -pvmwaremysql&gt;use mysql;
+mysql&gt;update user set host = '%' where user = 'root';
+mysql&gt;select host, user from user;
+
+2. 授权法。例如，你想myuser使用mypassword从任何主机连接到mysql服务器的话。
+推荐这种：
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'mypassword' WITH GRANT OPTION;
+mysql&gt;flush privileges;  这句一定要加上！！！
+</code></pre></div><p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fzupib3j96j30ht09yq3r.jpg" alt="image-20190204212146612"></p> <h2 id="安装php"><a href="#安装php" class="header-anchor">#</a> 安装php</h2> <p>安装最新的php72的源并,安装对应的扩展支持</p> <p>安装php72的源</p> <div class="language- extra-class"><pre class="language-text"><code>rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+</code></pre></div><p>检查源是否安装成功</p> <div class="language- extra-class"><pre class="language-text"><code>yum repolist enabled | grep &quot;webtatic*&quot;
+</code></pre></div><p>安装php71和对应的扩展</p> <div class="language- extra-class"><pre class="language-text"><code>yum -y install php72w php72w-fpm
+
+yum -y install php72w-mbstring php72w-common php72w-gd php72w-mcrypt
+
+yum -y install php72w-mysql php72w-xml php72w-cli php72w-devel
+
+yum -y install php72w-pecl-memcached php72w-pecl-redis php72w-opcache
+</code></pre></div><p>验证php7.1.x和扩展是否安装成功</p> <p>验证php是否安装成功</p> <div class="language- extra-class"><pre class="language-text"><code>php -v 
+</code></pre></div><p>验证对应的扩展是否安装成功</p> <div class="language- extra-class"><pre class="language-text"><code>php -m
+</code></pre></div><p>设置php-fpm并检测php-fpm的运行状态</p> <div class="language- extra-class"><pre class="language-text"><code>启动php-fpm
+
+ service php-fpm start
+
+ 检查启动是否成功
+
+ service php-fpm status
+
+ 设置开机自启动
+
+ systemctl enable php-fpm.service
+
+ 检查开机自启动是否设置成功
+
+ systemctl list-dependencies | grep php-fpm
+
+ ps -ef | grep php-fpm
+</code></pre></div><p>修改php-fpm 配置</p> <div class="language- extra-class"><pre class="language-text"><code>vim /etc/php-fpm.d/www.conf
+user = nginx
+group = nginx
+</code></pre></div><p>重启php-fpm</p> <div class="language- extra-class"><pre class="language-text"><code>service php-fpm restart
+</code></pre></div><p>让nginx 支持php 修改nginx配置</p> <p>nginx标准配置</p> <div class="language-nginx extra-class"><pre class="language-nginx"><code><span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token keyword">listen</span>       <span class="token number">80</span><span class="token punctuation">;</span>
+    <span class="token keyword">server_name</span>  localhost<span class="token punctuation">;</span>
+ 
+    <span class="token keyword">root</span>   <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token punctuation">;</span>
+ 
+        <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+            <span class="token keyword">root</span>   <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token punctuation">;</span>
+            <span class="token keyword">index</span> <span class="token keyword">index</span><span class="token punctuation">.</span>php <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+ 
+    <span class="token keyword">error_page</span>  <span class="token number">404</span>              <span class="token operator">/</span><span class="token number">404.</span>html<span class="token punctuation">;</span>
+ 
+    <span class="token comment"># redirect server error pages to the static page /50x.html  </span>
+    <span class="token keyword">error_page</span>   <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span>  <span class="token operator">/</span><span class="token number">50</span>x<span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+    <span class="token keyword">location</span> <span class="token operator">=</span> <span class="token operator">/</span><span class="token number">50</span>x<span class="token punctuation">.</span>html <span class="token punctuation">{</span>
+        <span class="token keyword">root</span>   <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+ 
+    <span class="token keyword">location</span> <span class="token operator">~</span> \<span class="token punctuation">.</span>php$ <span class="token punctuation">{</span>
+        <span class="token keyword">root</span>           <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token punctuation">;</span>
+        <span class="token keyword">try_files</span> <span class="token variable">$uri</span> <span class="token operator">=</span><span class="token number">404</span><span class="token punctuation">;</span>
+        <span class="token keyword">fastcgi_pass</span>   <span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">9000</span><span class="token punctuation">;</span>
+        <span class="token keyword">fastcgi_index</span>  <span class="token keyword">index</span><span class="token punctuation">.</span>php<span class="token punctuation">;</span>
+        <span class="token keyword">fastcgi_param</span>  SCRIPT_FILENAME  <span class="token variable">$document_root</span><span class="token variable">$fastcgi_script_name</span><span class="token punctuation">;</span>
+        <span class="token keyword">include</span>        fastcgi_params<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+ 
+<span class="token punctuation">}</span>
+</code></pre></div><p>重启nginx服务器,查看配置是否成功</p> <div class="language- extra-class"><pre class="language-text"><code>service nginx stop &amp;&amp; service nginx start 或 nginx -s reload
+</code></pre></div><p>ngxinx 配置的</p> <p>https://blog.csdn.net/h330531987/article/details/80645973</p> <h2 id="安装redis"><a href="#安装redis" class="header-anchor">#</a> 安装redis</h2> <p>参考链接: https://www.cnblogs.com/eczhou/p/5588375.html</p> <p>1、安装Redis</p> <p>1.1 如果没有安装wget，安装wget</p> <div class="language- extra-class"><pre class="language-text"><code>yum install wget  
+</code></pre></div><p>1.2 在<a href="http://redis.io/download" target="_blank" rel="noopener noreferrer">http://redis.io/download<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>页面查看redis版本，并下载安装</p> <div class="language- extra-class"><pre class="language-text"><code>wget http://download.redis.io/releases/redis-3.2.0.tar.gz
+</code></pre></div><p>1.3 解压，并进入解压目录进行编译。编译成功后会在redis-3.2.0目录下生成相关文件</p> <div class="language- extra-class"><pre class="language-text"><code>$ tar xzf redis-3.2.0.tar.gz
+$ cd redis-3.2.0
+$ make
+</code></pre></div><p>如果make时没有发现gcc，那么安装gcc</p> <div class="language- extra-class"><pre class="language-text"><code>yum install gcc gcc-c++ kernel-devel  
+</code></pre></div><p>再次make，如果出现如下错误</p> <div class="language- extra-class"><pre class="language-text"><code>zmalloc.h:50:31: error: jemalloc/jemalloc.h: No such file or directory
+zmalloc.h:55:2: error: #error &quot;Newer version of jemalloc required&quot;
+</code></pre></div><p>则使用如下命令进行make</p> <div class="language- extra-class"><pre class="language-text"><code>make MALLOC=libc
+</code></pre></div><p>1.4 在文件夹redis-3.2.0下启动redis服务，输入如下命令后回车。</p> <div class="language- extra-class"><pre class="language-text"><code>./src/redis-server redis.conf &amp;
+</code></pre></div><p>1.4 检测</p> <div class="language- extra-class"><pre class="language-text"><code>#检测后台进程是否存在
+ps -ef |grep redis
+
+#检测6379端口是否在监听
+netstat -lntp | grep 6379
+
+#使用`redis-cli`客户端检测连接是否正常
+./src/redis-cli
+127.0.0.1:6379&gt; keys *
+(empty list or set)
+127.0.0.1:6379&gt; set key &quot;hello world&quot;
+OK
+127.0.0.1:6379&gt; get key
+&quot;hello world&quot;
+</code></pre></div><p>1.5 停止服务</p> <div class="language- extra-class"><pre class="language-text"><code>#使用客户端
+./src/redis-cli shutdown
+#因为Redis可以妥善处理SIGTERM信号，所以直接kill -9也是可以的
+kill -9 PID
+</code></pre></div><h3 id="安装redis扩展"><a href="#安装redis扩展" class="header-anchor">#</a> 安装redis扩展</h3> <div class="language- extra-class"><pre class="language-text"><code>yum -y install php72w-pecl-memcached php72w-pecl-redis php72w-opcache
+</code></pre></div><p>如果phpinfo看到了 redis 就是开启成功如果没有</p> <p>参考:https://www.cnblogs.com/eczhou/p/5588375.html   下半部分的安装redis扩展</p> <h1 id="三、virtualbox共享本机文件夹"><a href="#三、virtualbox共享本机文件夹" class="header-anchor">#</a> 三、VirtualBox共享本机文件夹</h1> <p>VirtualBox中的Centos安装增强功能包VBoxLinuxAdditions和共享本机文件夹</p> <h2 id="_1-安装需要的环境"><a href="#_1-安装需要的环境" class="header-anchor">#</a> 1.安装需要的环境</h2> <p>(一定要先安装gcc和gcc-c++，再安装下面两个kernel，否则kernel无法完全编译)</p> <div class="language- extra-class"><pre class="language-text"><code>yum update
+yum install gcc
+yum install gcc-c++
+yum install make
+yum install kernel-headers
+yum install kernel-devel
+yum groupinstall &quot;Development Tools&quot;
+
+
+</code></pre></div><h2 id="_2-重启系统"><a href="#_2-重启系统" class="header-anchor">#</a> 2.重启系统</h2> <div class="language- extra-class"><pre class="language-text"><code>reboot
+
+</code></pre></div><h2 id="_3-挂载并安装-vboxguestadditions-iso"><a href="#_3-挂载并安装-vboxguestadditions-iso" class="header-anchor">#</a> 3.挂载并安装 VBoxGuestAdditions.iso</h2> <p>需要加载VBoxGuestAdditions，virtualbox安装目录里面会有VBoxGuestAdditions.iso，</p> <p>或者到http://download.virtualbox.org/virtualbox下载对应版本的增强包</p> <p>接着虚拟机选择分配光盘为VBoxGuestAdditions.iso</p> <p>新增目录</p> <p><code>mkdir /home/website</code>
+挂载到CD/DVD虚拟光驱
+<code>mount -t auto /dev/cdrom /home/website</code></p> <p>(这里的cdrom是cd的，有时是dvd1，具体有什么光驱到 /dev目录下查看)</p> <p>转到目录
+<code>cd /home/website</code> <code>ll</code>
+此时看到列表中有VBoxLinuxAdditions.run说明挂载成功</p> <p><code>sh ./VBoxLinuxAdditions.run</code></p> <p>等待安装完成</p> <p>(如果安装结果提示内核错误，尝试 使用<code>yum update kernel</code>更新内核,需要<code>reboot</code>后安装VBoxLinuxAdditions)</p> <p>最后 重启以使 GuestAddition 生效</p> <p><code>reboot</code></p> <h2 id="_4-共享文件夹"><a href="#_4-共享文件夹" class="header-anchor">#</a> 4.共享文件夹</h2> <p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fzupxqdg32j309n06wdg3.jpg" alt="image-20190204213635733"></p> <p>挂载</p> <p><code>mount -t vboxsf wb /home/website</code></p> <p>切换目录并查看</p> <p><code>cd /home/website</code></p> <p><code>ll</code></p> <p>如果成功则可以看到本机的文件</p> <p>实现 开机自动挂载</p> <p><code>vi ~/.bashrc</code></p> <p>添加一行</p> <p><code>mount -t vboxsf wb /home/website</code></p> <p>保存退出</p> <h2 id="_5-共享文件权限问题"><a href="#_5-共享文件权限问题" class="header-anchor">#</a> 5.共享文件权限问题</h2> <p>用网站访问文件的时候 肯定会 404 或者 403 或者其实没权限的问题出现的</p> <p>问题：临时和永久关闭Selinux</p> <p>如果共享文件，如果报403 可能是权限问题 ，</p> <p>解决：</p> <div class="language-shell extra-class"><pre class="language-shell"><code>临时关闭：
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># getenforce</span>
+Enforcing
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># setenforce 0</span>
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># getenforce</span>
+Permissive
+永久关闭：
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># vim /etc/sysconfig/selinux</span>
+<span class="token assign-left variable">SELINUX</span><span class="token operator">=</span>enforcing 改为 <span class="token assign-left variable">SELINUX</span><span class="token operator">=</span>disabled
+
+</code></pre></div><p>如果还是不行，就再执行以下命令</p> <p>解决方法也很简单，只需要将当期登录用户加入到vboxsf组就行了。</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">chmod</span> -R <span class="token number">777</span> /usr/share/nginx/html  <span class="token comment">#修改文件夹权限</span>
+<span class="token function">chown</span> -R root:vboxsf /usr/share/nginx/html  <span class="token comment">#修改文件夹用户组</span>
+<span class="token function">sudo</span> <span class="token function">usermod</span> -aG vboxsf <span class="token variable"><span class="token variable">$(</span><span class="token function">whoami</span><span class="token variable">)</span></span>   
+
+</code></pre></div><h1 id="常用命令："><a href="#常用命令：" class="header-anchor">#</a> 常用命令：</h1> <p>ln -s /usr/share/nginx/html html  软连接制作  在当前页面指向</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/Java/Stream使用.html">
+        Stream
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.acbfca1e.js" defer></script><script src="/assets/js/2.d3514a48.js" defer></script><script src="/assets/js/9.9f580f2a.js" defer></script>
+  </body>
+</html>
